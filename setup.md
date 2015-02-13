@@ -1,6 +1,6 @@
 ---
 layout: module
-title: Setup
+title: 設定
 ---
 
 ## Deploying to Heroku using the Heroku Button
@@ -8,7 +8,7 @@ title: Setup
 You can deploy your own version of Nibs in seconds using the Heroku button below:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-  
+
 ## Deploying to Heroku using the Command Line
 
 You can also deploy Nibs to Heroku using the command line:
@@ -25,8 +25,8 @@ You can also deploy Nibs to Heroku using the command line:
     cd nibs
     heroku create
     ```
-    
-1. Install the Postgres plugin    
+
+1. Install the Postgres plugin
 
     ```
     heroku addons:add heroku-postgresql:dev
@@ -45,11 +45,11 @@ You can also deploy Nibs to Heroku using the command line:
         heroku open
         ```
     - Click the Signup button to create an account
-     
+
     > Facebook login won't work until you complete the Facebook integration steps described below.
 
 
-## Installing a Local Version 
+## Installing a Local Version
 
 You can also install Nibs on your local machine:
 
@@ -65,14 +65,14 @@ You can also install Nibs on your local machine:
     cd nibs
     npm install
     ```
-    
+
 1. Create a local database
     - Install and start [Postgres](http://www.postgresql.org/) on your local machine
     - Create a database called **nibs**
     - If your database is available using **postgres://@127.0.0.1:5432/nibs**, you have nothing else to do
     - If you use another database URL, either define a shell environment variable called **DATABASE_URL**, or modify **server/config.js** to provide your own default URL
 
-1. Start the server    
+1. Start the server
 
     ```
     node server
@@ -82,13 +82,13 @@ You can also install Nibs on your local machine:
     - Open a browser and access the following URL:
         [http://localhost:5000](http://localhost:5000)
     - Click the Signup button to create an account
-     
+
     > Facebook login won't work until you complete the Facebook integration steps described below.
-    
+
 
 ## Facebook Integration
 
-1. Create a Facebook application 
+1. Create a Facebook application
     - Login to Facebook
     - Access https://developers.facebook.com/apps, and click Create New App
     - Specify a unique Display Name and a Category, and click Create App
@@ -103,8 +103,8 @@ You can also install Nibs on your local machine:
 2. Change the Nibs configuration to use your Facebook app
     - Open nibs/client/config.js
     - Replace YOUR\_FB\_APP\_ID with the id of the Facebook app you just created
-          
-3. Push the change to Heroku          
+
+3. Push the change to Heroku
 
 
 ## Building the Cordova Shell
@@ -116,9 +116,9 @@ Follow the instructions below to run the application as an app on your device:
     ```
     npm install -g cordova
     ```
-    
+
     On a Mac, you may have to use sudo:
-    
+
     ```
     sudo npm install -g cordova
     ```
@@ -131,10 +131,10 @@ Follow the instructions below to run the application as an app on your device:
 
 1. Adjust the contents of the www folder
 
-    Either copy the contents of nibs/client into nibs-shell/www or delete www folder in nibs-shell and create a symbolic link to nibs-shell/www. 
-    
+    Either copy the contents of nibs/client into nibs-shell/www or delete www folder in nibs-shell and create a symbolic link to nibs-shell/www.
+
     For example, on a Mac:
-    
+
     ```
     cd nibs-shell
     rm -rf www
@@ -161,8 +161,8 @@ Follow the instructions below to run the application as an app on your device:
     ```
     cordova platforms add ios
     ```
-    
-4. Build the project    
+
+4. Build the project
 
     For example, to build for the iOS platform, type:
 
