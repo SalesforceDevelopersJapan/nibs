@@ -38,13 +38,13 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="walkthrough.html">Walkthrough</a></li>
-                <li><a href="architecture.html">Architecture</a></li>
-                <li><a href="setup.html">Setup</a></li>
+                <li><a href="walkthrough.html">概要</a></li>
+                <li><a href="architecture.html">アーキテクチャ</a></li>
+                <li><a href="setup.html">セットアップ</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a
-                        href="https://github.com/heroku/nibs-next"><img
+                        href="https://github.com/SalesforceDevelopersJapan/nibs-jp"><img
                         src="images/icon-github.png" style="border: none;margin: -4px 0;height: 28px;width: 28px;"/>
                     GitHub
                     Project</a></li>
@@ -52,6 +52,7 @@
         </div><!--/.nav-collapse -->
     </div>
 </div>
+
 
 <div class="container">
 
@@ -76,7 +77,7 @@
 
 <p>The server-side application exposes its own REST endpoints. The client application gets its data by invoking these REST services. These are API calls to your own application (the Nibs server), and they don&#39;t count towards Salesforce API limits.</p>
 
-<h2>Salesforce Integration</h2>
+<h2>Salesforce Integration with Heroku Connect</h2>
 
 <p>The application data is maintained in Salesforce. <strong>Heroku Connect</strong> synchronizes the Salesforce data with a Postgres database running in Heroku.</p>
 
@@ -98,7 +99,7 @@
 <li>The data is kept in sync using Connect&#39;s bi-directional data synchronization</li>
 </ul>
 
-<h2>Salesforce Communities</h2>
+<p><a href="https://www.heroku.com/connect">Learn more</a> about Heroku Connect.</p>
 
 <h2>ExactTarget Push Notification</h2>
 
@@ -106,7 +107,18 @@
 
 <h2>ExactTarget Journey Builder</h2>
 
+<p>See <a href="journey_builder.html">instructions for Journey Builder</a> integration to learn how Journey Builder integrates with Nibs.</p>
+
 <h2>SOS</h2>
+
+<p><strong>SOS</strong> is a feature of Service Cloud where you put a <em>Video Help</em> button into your app which enables your
+app&#39;s users to open a video chat directly with a service agent. SOS integrates with your app via an 
+<a href="https://github.com/goinstant/sos-guides">iOS SDK</a>. The SOS functions can be exposed via an Apache Cordova
+plugin to the Javascript in the Nibs Angular App. Simply connect a new button to invoke the 
+<code>SOS Application:startSession</code> method. The Apache Cordova project used for Nibs, with SOS integration
+is available here: <a href="https://github.com/heroku/nibs-cordova">https://github.com/heroku/nibs-cordova</a>.</p>
+
+<p><img src="images/sos_screenshot.png" alt="alt tag"></p>
 
 <h2>User Management</h2>
 
@@ -168,7 +180,7 @@
 
 <div class="container">
     <div id="footer">
-        <p class="text-muted">Heroku, 2014.</p>
+        <p class="text-muted">Salesforce, 2015.</p>
     </div>    <!-- Site footer -->
 </div>
 

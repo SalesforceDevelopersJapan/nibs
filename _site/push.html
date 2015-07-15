@@ -38,13 +38,13 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="walkthrough.html">Walkthrough</a></li>
-                <li><a href="architecture.html">Architecture</a></li>
-                <li><a href="setup.html">Setup</a></li>
+                <li><a href="walkthrough.html">概要</a></li>
+                <li><a href="architecture.html">アーキテクチャ</a></li>
+                <li><a href="setup.html">セットアップ</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a
-                        href="https://github.com/heroku/nibs-next"><img
+                        href="https://github.com/SalesforceDevelopersJapan/nibs-jp"><img
                         src="images/icon-github.png" style="border: none;margin: -4px 0;height: 28px;width: 28px;"/>
                     GitHub
                     Project</a></li>
@@ -52,6 +52,7 @@
         </div><!--/.nav-collapse -->
     </div>
 </div>
+
 
 <div class="container">
 
@@ -66,9 +67,9 @@
 
 <p>In the Nibs mobile app, when a consumer shares an Offer or a Product on Facebook, Nibs pushes a message (currently to all Nibs users, but it could be to friends only in a real life app):</p>
 
-<p><img src="https://github.com/ccoenraets/nibs/raw/master/resources/screenshots/push_facebook.png" alt="alt tag"></p>
+<p><img src="images/push_facebook.png" alt="alt tag"></p>
 
-<p><img src="https://github.com/ccoenraets/nibs/raw/master/resources/screenshots/push_facebook_notification.png" alt="alt tag"></p>
+<p><img src="images/push_facebook_notification.png" alt="alt tag"></p>
 
 <blockquote>
 <p>Tapping the notification opens the Nibs app on the related Product or Offer.</p>
@@ -80,13 +81,13 @@
 
 <p><strong>Publisher Action in the browser:</strong></p>
 
-<p><img src="https://github.com/ccoenraets/nibs/raw/master/resources/screenshots/push_offer.png" alt="alt tag"></p>
+<p><img src="images/push_offer.png" alt="alt tag"></p>
 
 <p><strong>Publisher Action in S1 App:</strong></p>
 
-<p><img src="https://github.com/ccoenraets/nibs/raw/master/resources/screenshots/push_offer_s1.png" alt="alt tag"></p>
+<p><img src="images/push_offer_s1.png" alt="alt tag"></p>
 
-<p><img src="https://github.com/ccoenraets/nibs/raw/master/resources/screenshots/push_offer_notification.png" alt="alt tag"></p>
+<p><img src="images/push_offer_notification.png" alt="alt tag"></p>
 
 <blockquote>
 <p>Tapping the notification opens the app on the related offer.</p>
@@ -94,23 +95,54 @@
 
 <h2>Use Case 3: Ad Hoc Messages</h2>
 
-<p>The Loyalty app in Salesforce has a <strong>Push Notification</strong> tab that loads the PushAdmin Visualforce page (available in the Salesforce browser app or Salesforce1 app). You can use this page to push adhoc messages to all users, or to a group of users identified by their subscriber key (email address). </p>
+<p>The Loyalty app in Salesforce has a <strong>Push Notification</strong> tab that loads the PushAdmin Visualforce page (available in the Salesforce browser app or Salesforce1 app). You can use this page to push adhoc messages to all users, or to a group of users identified by their subscriber key (email address).</p>
 
 <p><strong>PushAdmin in the Browser:</strong></p>
 
-<p><img src="https://github.com/ccoenraets/nibs/raw/master/resources/screenshots/push_adhoc.png" alt="alt tag"></p>
+<p><img src="images/push_adhoc.png" alt="alt tag"></p>
 
 <p><strong>Push Admin in S1 App:</strong></p>
 
-<p><img src="https://github.com/ccoenraets/nibs/raw/master/resources/screenshots/push_adhoc_s1.PNG" alt="alt tag"></p>
+<p><img src="images/push_adhoc_s1.PNG" alt="alt tag"></p>
 
-<p><img src="https://github.com/ccoenraets/nibs/raw/master/resources/screenshots/push_adhoc_notification.png" alt="alt tag"></p>
+<p><img src="images/push_adhoc_notification.png" alt="alt tag"></p>
 
 <h2>Push Notification Analytics</h2>
 
 <p>Push Messages analytics can be tracked in the ET dashboard:</p>
 
-<p><img src="https://github.com/ccoenraets/nibs/raw/master/resources/screenshots/push_etdash.png" alt="alt tag"></p>
+<p><img src="images/push_etdash.png" alt="alt tag"></p>
+
+<h2>Getting Started</h2>
+
+<p>The <a href="https://code.exacttarget.com/apis-sdks/mobilepush-sdks/">ExactTarget Mobile Push SDK</a> works for both native and Hybrid apps. Here is a code example to register for notifications in a hybrid app:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ETPush.registerForNotifications(
+    function() {
+        console.log(&#39;registerForNotifications: success&#39;);
+    },
+    function(error) {
+        console.log(&#39;registerForNotifications: error - &#39; + JSON.stringify(error));
+    },
+    &quot;onNotification&quot; // Function name as a string. The function to invoke when a message comes in.
+);
+
+ETPush.resetBadgeCount();
+
+// Associate a subscriber alias with the token
+if (user &amp;&amp; user.email) {
+    console.log(&#39;Subscribing for Push as &#39; + user.email);
+    ETPush.setSubscriberKey(
+        function() {
+            console.log(&#39;setSubscriberKey: success&#39;);
+        },
+        function(error) {
+            console.log(&#39;Error setting Push Notification subscriber&#39;);
+        },
+        user.email
+    );
+}
+</code></pre></div>
+<p>You can then use the <a href="http://code.exacttarget.com/apis-sdks/rest-api/">ExactTarget APIs</a> to post messages to regitsred devices.</p>
 
 
     </div>
@@ -147,7 +179,7 @@
 
 <div class="container">
     <div id="footer">
-        <p class="text-muted">Heroku, 2014.</p>
+        <p class="text-muted">Salesforce, 2015.</p>
     </div>    <!-- Site footer -->
 </div>
 

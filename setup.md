@@ -1,139 +1,141 @@
 ---
 layout: module
-title: 設定
+title: セットアップ
 ---
 
-## Deploying to Heroku using the Heroku Button
+## Herokuボタンを使ってHerokuへデプロイ
 
-You can deploy your own version of Nibs in seconds using the Heroku button below:
+あなたの専用のNibsを以下のHerokuボタンを利用してデプロイすることが可能です:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Deploying to Heroku using the Command Line
+## コマンドラインでHerokuへデプロイする
 
-You can also deploy Nibs to Heroku using the command line:
+コマンドラインからHerokuへデプロイする事も可能です:
 
-1. Clone the repository
-
-    ```
-    git clone https://github.com/heroku/nibs
-    ```
-
-1. Create a Heroku application
+1. リポジトリをクローン
 
     ```
-    cd nibs
+    git clone https://github.com/SalesforceDevelopersJapan/nibs-jp
+    ```
+
+1. Herokuアプリケーションの作成
+
+    ```
+    cd nibs-jp
     heroku create
     ```
 
-1. Install the Postgres plugin
+1. Postgresプラグインのインストール
 
     ```
     heroku addons:add heroku-postgresql:dev
     ```
 
-1. Deploy to Heroku
+1. Herokuへデプロイ
 
     ```
     git push heroku master
     ```
 
-1. Run the the application:
-    - Open the application in a browser:
+1. アプリケーションの起動:
+    - ブラウザでアプリケーションを開きます:
 
         ```
         heroku open
         ```
-    - Click the Signup button to create an account
+    - サインアップボタンからアカウントを作成します
 
-    > Facebook login won't work until you complete the Facebook integration steps described below.
+    > Facebookログインはページ下部にあるFacebookインテグレーションのステップを完了しなければ動きません。
 
 
-## Installing a Local Version
+## ローカル環境へのインストール
 
-You can also install Nibs on your local machine:
+Nibsをあなたのローカル環境にインストールすることも可能です:
 
-1. Clone the repository
+1. リポジトリのクローン
 
     ```
-    git clone https://github.com/heroku/nibs
+    git clone https://github.com/SalesforceDevelopersJapan/nibs-jp
     ```
 
-1. Install the server dependencies
+1. サーバ側の依存ファイルをインストール
 
     ```
     cd nibs
     npm install
     ```
 
-1. Create a local database
-    - Install and start [Postgres](http://www.postgresql.org/) on your local machine
-    - Create a database called **nibs**
-    - If your database is available using **postgres://@127.0.0.1:5432/nibs**, you have nothing else to do
-    - If you use another database URL, either define a shell environment variable called **DATABASE_URL**, or modify **server/config.js** to provide your own default URL
+1. ローカルデータベースの作成
+    - [Postgres](http://www.postgresql.org/) をローカルマシンへインストールし、起動します
+    - **nibs** という名前のデータベースを作成します
+    - 仮にデータベースが **postgres://@127.0.0.1:5432/nibs** といったURLで使用可能ならば、他になにもすることはありません
+    - もし別のURLが設定されているならば、Shell環境から **DATABASE_URL** を編集するか、**server/config.js** に、定義されたデフォルトのURLを設定します
 
-1. Start the server
+1. サーバを起動
 
     ```
     node server
     ```
 
-1. Run the application
-    - Open a browser and access the following URL:
+1. アプリケーションの起動
+    - Webブラウザで以下のURLにアクセスします:
         [http://localhost:5000](http://localhost:5000)
-    - Click the Signup button to create an account
+    - サインインボタンからアカウントを作成します
 
-    > Facebook login won't work until you complete the Facebook integration steps described below.
+    > Facebookログインはページ下部にあるFacebookインテグレーションのステップを完了しなければ動きません。
 
 
-## Facebook Integration
+## Facebookインテグレーション
 
-1. Create a Facebook application
-    - Login to Facebook
-    - Access https://developers.facebook.com/apps, and click Create New App
-    - Specify a unique Display Name and a Category, and click Create App
-    - Click Settings in the left navigation
-    - Click the Advanced Tab
-    - In the Security section, add the following URLs in the Valid OAuth Redirect URIs field:
+1. Facebookアプリケーションを作成します
+    - Facebookへログインします
+    - https://developers.facebook.com/apps へアクセスしAdd New Appのボタンをクリックします
+    - Advanced Setupのリンクをクリックします
+    - Display NameとCategoryを定義し、Create App IDをクリックします
+    - 左側のナビゲーションからSettingsメニューをクリックします
+    - Advancedタブをクリックします
+    - Client OAuth Settings セクションの、 Valid OAuth redirect URIsに、該当するURLを入力します:
         http://[YOUR-HEROKU-APP-NAME].herokuapp.com/oauthcallback.html
-        http://localhost:5000/oauthcallback.html (for local installation)
-        https://www.facebook.com/connect/login_success.html (for access from Cordova)
-    - Click Save Changes
+        http://localhost:5000/oauthcallback.html (ローカルへのインストールの場合)
+        https://www.facebook.com/connect/login_success.html (Cordovaからアクセスする場合)
+    - Save Changes ボタンをクリックします
 
-2. Change the Nibs configuration to use your Facebook app
-    - Open nibs/client/config.js
-    - Replace YOUR\_FB\_APP\_ID with the id of the Facebook app you just created
+2. Nibsアプリの設定をFacebookアプリを使用するように設定します
+    - nibs-jp/client/js/config.jsを開きます
+    - YOUR\_FB\_APP\_ID を先程作成したFacebookアプリのIDで上書きまします
 
-3. Push the change to Heroku
+3. 変更をHerokuへPushします
 
+    > 実際に動かすには、FBアプリケーションにpublish_actions及びread_streamの権限がなければ動どうさしません。動作を確認するには、FBアプリケーションのテストユーザ作成機能を利用します。
 
-## Building the Cordova Shell
+## Cordovaシェルのビルド
 
-Follow the instructions below to run the application as an app on your device:
+以下の手順を行うことで、アプリケーションをあなたのデバイスで動作させることができます:
 
-1. Install Cordova:
+1. Cordovaのインストール
 
     ```
     npm install -g cordova
     ```
 
-    On a Mac, you may have to use sudo:
+    Macの場合には、sudoを使う必要があります:
 
     ```
     sudo npm install -g cordova
     ```
 
-1. Create the cordova application
+1. cordovaアプリケーションを作成
 
     ```
     cordova create nibs-shell com.nibs.loyalty Nibs
     ```
 
-1. Adjust the contents of the www folder
+1. wwwフォルダ内のコンテンツを調整
 
-    Either copy the contents of nibs/client into nibs-shell/www or delete www folder in nibs-shell and create a symbolic link to nibs-shell/www.
+    nibs/client 内のコンテンツを nibs-shell/www へ、もしくはnibs-shell内のwwwフォルダを削除して、nibs-shell/wwwにシンボリックリンクを作成します
 
-    For example, on a Mac:
+    以下はMacの場合の例です:
 
     ```
     cd nibs-shell
@@ -141,9 +143,9 @@ Follow the instructions below to run the application as an app on your device:
     ln -s [path-to-nibs]/client www
     ```
 
-1. Install the Cordova plugins
+1. Cordovaプラグインのインストール
 
-    Make sure you are in the **nibs-shell** directory and type:
+    **nibs-shell** ディレクトリにいることを確認し、以下のコマンドを入力します:
 
     ```
     cordova plugins add org.apache.cordova.device
@@ -154,20 +156,20 @@ Follow the instructions below to run the application as an app on your device:
     cordova plugins add org.apache.cordova.inappbrowser
     ```
 
-3. Add a platform
+3. プラットフォームを追加
 
-    For example, to add the iOS platform, type:
+    この例ではiOSのプラットフォームを追加します:
 
     ```
     cordova platforms add ios
     ```
 
-4. Build the project
+4. プロジェクトをビルド
 
-    For example, to build for the iOS platform, type:
+    この例では、iOSのプラットフォームへ向けてビルドをします:
 
     ```
     cordova build ios
     ```
 
-5. Run the app in the emulator or on your device. For example, for iOS, open the project (platforms/ios/Nibs.xcodeproj) in Xcode and run it in the emulator or on your iOS device.
+5. エミュレータもしくはデバイス上でアプリケーションを動作させます。例えばiOSの場合では、XCodeの中でプロジェクトをオープン (platforms/ios/Nibs.xcodeproj)し、アプリをエミュレータもしくはiOSデバイスで実行します。

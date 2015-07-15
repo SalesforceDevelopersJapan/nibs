@@ -38,13 +38,13 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="walkthrough.html">Walkthrough</a></li>
-                <li><a href="architecture.html">Architecture</a></li>
-                <li><a href="setup.html">Setup</a></li>
+                <li><a href="walkthrough.html">概要</a></li>
+                <li><a href="architecture.html">アーキテクチャ</a></li>
+                <li><a href="setup.html">セットアップ</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a
-                        href="https://github.com/heroku/nibs-next"><img
+                        href="https://github.com/SalesforceDevelopersJapan/nibs-jp"><img
                         src="images/icon-github.png" style="border: none;margin: -4px 0;height: 28px;width: 28px;"/>
                     GitHub
                     Project</a></li>
@@ -53,73 +53,74 @@
     </div>
 </div>
 
+
 <div class="container">
 
 <div class="row">
 
     <div class="col-xs-12">
-        <h1>Setup</h1>
+        <h1>セットアップ</h1>
         <!--<hr/>-->
-        <h2>Deploying to Heroku using the Heroku Button</h2>
+        <h2>Herokuボタンを使ってHerokuへデプロイ</h2>
 
-<p>You can deploy your own version of Nibs in seconds using the Heroku button below:</p>
+<p>あなたの専用のNibsを以下のHerokuボタンを利用してデプロイすることが可能です:</p>
 
 <p><a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.png" alt="Deploy"></a></p>
 
-<h2>Deploying to Heroku using the Command Line</h2>
+<h2>コマンドラインでHerokuへデプロイする</h2>
 
 <p>You can also deploy Nibs to Heroku using the command line:</p>
 
 <ol>
-<li><p>Clone the repository</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git clone https://github.com/heroku/nibs
+<li><p>リポジトリをクローン</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git clone https://github.com/SalesforceDevelopersJapan/nibs-jp
 </code></pre></div></li>
-<li><p>Create a Heroku application</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">cd nibs
+<li><p>Herokuアプリケーションの作成</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd nibs-jp
 heroku create
 </code></pre></div></li>
-<li><p>Install the Postgres plugin    </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">heroku addons:add heroku-postgresql:dev
+<li><p>Postgresプラグインのインストール</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">heroku addons:add heroku-postgresql:dev
 </code></pre></div></li>
-<li><p>Deploy to Heroku</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git push heroku master
+<li><p>Herokuへデプロイ</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git push heroku master
 </code></pre></div></li>
-<li><p>Run the the application:</p>
+<li><p>アプリケーションの起動:</p>
 
 <ul>
-<li><p>Open the application in a browser:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">heroku open
+<li><p>ブラウザでアプリケーションを開きます:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">heroku open
 </code></pre></div></li>
-<li><p>Click the Signup button to create an account</p></li>
+<li><p>サインアップボタンからアカウントを作成します</p></li>
 </ul>
 
 <blockquote>
-<p>Facebook login won&#39;t work until you complete the Facebook integration steps described below.</p>
+<p>Facebookログインはページ下部にあるFacebookインテグレーションのステップを完了しなければ動きません。</p>
 </blockquote></li>
 </ol>
 
-<h2>Installing a Local Version</h2>
+<h2>ローカル環境へのインストール</h2>
 
-<p>You can also install Nibs on your local machine:</p>
+<p>Nibsをあなたのローカル環境にインストールすることも可能です:</p>
 
 <ol>
-<li><p>Clone the repository</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git clone https://github.com/heroku/nibs
+<li><p>リポジトリのクローン</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">git clone https://github.com/SalesforceDevelopersJapan/nibs-jp
 </code></pre></div></li>
-<li><p>Install the server dependencies</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">cd nibs
+<li><p>サーバ側の依存ファイルをインストール</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd nibs
 npm install
 </code></pre></div></li>
-<li><p>Create a local database</p>
+<li><p>ローカルデータベースの作成</p>
 
 <ul>
-<li>Install and start <a href="http://www.postgresql.org/">Postgres</a> on your local machine</li>
-<li>Create a database called <strong>nibs</strong></li>
+<li><a href="http://www.postgresql.org/">Postgres</a> をローカルマシンへインストールし、起動します</li>
+<li><strong>nibs</strong> という名前のデータベースを作成します</li>
 <li>If your database is available using <strong>postgres://@127.0.0.1:5432/nibs</strong>, you have nothing else to do</li>
 <li>If you use another database URL, either define a shell environment variable called <strong>DATABASE_URL</strong>, or modify <strong>server/config.js</strong> to provide your own default URL</li>
 </ul></li>
-<li><p>Start the server    </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">node server
+<li><p>サーバを起動</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">node server
 </code></pre></div></li>
 <li><p>Run the application</p>
 
@@ -134,10 +135,10 @@ npm install
 </blockquote></li>
 </ol>
 
-<h2>Facebook Integration</h2>
+<h2>Facebookインテグレーション</h2>
 
 <ol>
-<li><p>Create a Facebook application </p>
+<li><p>Facebookアプリケーションを作成します</p>
 
 <ul>
 <li>Login to Facebook</li>
@@ -157,36 +158,36 @@ https://www.facebook.com/connect/login_success.html (for access from Cordova)</l
 <li>Open nibs/client/config.js</li>
 <li>Replace YOUR_FB_APP_ID with the id of the Facebook app you just created</li>
 </ul></li>
-<li><p>Push the change to Heroku          </p></li>
+<li><p>Push the change to Heroku</p></li>
 </ol>
 
-<h2>Building the Cordova Shell</h2>
+<h2>Cordovaシェルのビルド</h2>
 
 <p>Follow the instructions below to run the application as an app on your device:</p>
 
 <ol>
 <li><p>Install Cordova:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">npm install -g cordova
+<div class="highlight"><pre><code class="language-text" data-lang="text">npm install -g cordova
 </code></pre></div>
 <p>On a Mac, you may have to use sudo:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo npm install -g cordova
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo npm install -g cordova
 </code></pre></div></li>
 <li><p>Create the cordova application</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">cordova create nibs-shell com.nibs.loyalty Nibs
+<div class="highlight"><pre><code class="language-text" data-lang="text">cordova create nibs-shell com.nibs.loyalty Nibs
 </code></pre></div></li>
 <li><p>Adjust the contents of the www folder</p>
 
-<p>Either copy the contents of nibs/client into nibs-shell/www or delete www folder in nibs-shell and create a symbolic link to nibs-shell/www. </p>
+<p>Either copy the contents of nibs/client into nibs-shell/www or delete www folder in nibs-shell and create a symbolic link to nibs-shell/www.</p>
 
 <p>For example, on a Mac:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">cd nibs-shell
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd nibs-shell
 rm -rf www
 ln -s [path-to-nibs]/client www
 </code></pre></div></li>
 <li><p>Install the Cordova plugins</p>
 
 <p>Make sure you are in the <strong>nibs-shell</strong> directory and type:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">cordova plugins add org.apache.cordova.device
+<div class="highlight"><pre><code class="language-text" data-lang="text">cordova plugins add org.apache.cordova.device
 cordova plugins add org.apache.cordova.console
 cordova plugins add org.apache.cordova.statusbar
 cordova plugins add org.apache.cordova.geolocation
@@ -196,12 +197,12 @@ cordova plugins add org.apache.cordova.inappbrowser
 <li><p>Add a platform</p>
 
 <p>For example, to add the iOS platform, type:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">cordova platforms add ios
+<div class="highlight"><pre><code class="language-text" data-lang="text">cordova platforms add ios
 </code></pre></div></li>
-<li><p>Build the project    </p>
+<li><p>Build the project</p>
 
 <p>For example, to build for the iOS platform, type:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">cordova build ios
+<div class="highlight"><pre><code class="language-text" data-lang="text">cordova build ios
 </code></pre></div></li>
 <li><p>Run the app in the emulator or on your device. For example, for iOS, open the project (platforms/ios/Nibs.xcodeproj) in Xcode and run it in the emulator or on your iOS device.</p></li>
 </ol>
@@ -241,7 +242,7 @@ cordova plugins add org.apache.cordova.inappbrowser
 
 <div class="container">
     <div id="footer">
-        <p class="text-muted">Heroku, 2014.</p>
+        <p class="text-muted">Salesforce, 2015.</p>
     </div>    <!-- Site footer -->
 </div>
 
